@@ -1,8 +1,8 @@
 import { LucideIcon, Github, GitBranch, Database, Docker, Cloud, JavaScript, Python } from 'lucide-react';
 // Import icon dari react-icons (lebih lengkap dan sesuai logo asli)
-import { SiLaravel, SiMysql, SiGithub, SiJavascript, SiPython, SiTensorflow, SiDocker, SiCloudflare, SiPhp, SiCss3 } from 'react-icons/si';
-import { RiNextjsFill } from "react-icons/ri";
-import { FaHtml5 } from "react-icons/fa";
+import { SiLaravel, SiMysql, SiGithub, SiJavascript, SiPython, SiTensorflow, SiDocker, SiCloudflare, SiPhp, SiCss3, SiPostman } from 'react-icons/si';
+import { RiNextjsFill, RiTailwindCssFill } from "react-icons/ri";
+import { FaHtml5, FaReact, FaNodeJs } from "react-icons/fa";
 
 export interface Skill {
   name: string;
@@ -19,5 +19,9 @@ export const skills: Skill[] = [
   { name: 'JavaScript', icon: <SiJavascript size={40} /> },
   { name: 'Python', icon: <SiPython size={40} /> },
   { name: 'PHP', icon: <SiPhp size={40} /> },
-  { name: 'Next.js', icon: <RiNextjsFill size={40} /> },
+  { name: 'Next.JS', icon: <RiNextjsFill size={40} /> },
+  { name: 'React.js', icon: <FaReact size={40} /> },
+  { name: 'Node.js', icon: <FaNodeJs size={40} /> },
+  { name: 'Tailwind CSS', icon: <RiTailwindCssFill size={40} /> },
+  { name: 'Postman', icon: <SiPostman size={40} /> },
 ];

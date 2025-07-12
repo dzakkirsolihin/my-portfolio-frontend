@@ -241,31 +241,37 @@ const Projects: React.FC = () => {
               image={project.previewImage}
               title={project.title}
               description={project.overview}
-              className="h-[520px] flex flex-col hover:scale-105 transition-all duration-300 group"
+              className="h-[520px] flex flex-col justify-between hover:scale-105 transition-all duration-300 group"
             >
-              <div className="flex items-center justify-between mb-3">
-                <span className={`px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
-                  project.isDeployed
-                    ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                    : 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300'
-                }`}>
-                  {project.isDeployed ? 'Live' : 'Development'}
-                </span>
-              </div>
-              <div className="flex flex-wrap gap-1 mb-4 h-16 overflow-hidden">
-                {project.technologies?.slice(0, 3).map((tech: string) => (
-                  <span
-                    key={tech}
-                    className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded text-xs"
-                  >
-                    {tech}
+              <div className="flex flex-col flex-1">
+                <div className="flex items-center justify-between mb-3">
+                  <span className={`px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
+                    project.isDeployed
+                      ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
+                      : 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300'
+                  }`}>
+                    {project.isDeployed ? 'Live' : 'Development'}
                   </span>
-                ))}
-                {project.technologies && project.technologies.length > 3 && (
-                  <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs">
-                    +{project.technologies.length - 3}
-                  </span>
-                )}
+                </div>
+                <div className="flex flex-wrap gap-1 mb-4 h-16 overflow-hidden">
+                  {project.technologies?.slice(0, 3).map((tech: string) => (
+                    <span
+                      key={tech}
+                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded text-xs"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies && project.technologies.length > 3 && (
+                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs">
+                      +{project.technologies.length - 3}
+                    </span>
+                  )}
+                </div>
+                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">{project.title}</h2>
+                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
+                  {project.overview}
+                </p>
               </div>
               <div className="mt-auto pt-4">
                 <button

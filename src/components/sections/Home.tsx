@@ -19,12 +19,13 @@ const Home: React.FC<HomeProps> = ({ onSectionChange }) => {
 
   useEffect(() => {
     setLoading(true);
+    const API_BASE_URL = import.meta.env.VITE_API_URL || '';
     Promise.all([
-      fetch('/api/projects').then((res) => {
+      fetch(`${API_BASE_URL}/projects`).then((res) => {
         if (!res.ok) throw new Error('Failed to fetch projects');
         return res.json();
       }),
-      fetch('/api/certificates').then((res) => {
+      fetch(`${API_BASE_URL}/certificates`).then((res) => {
         if (!res.ok) throw new Error('Failed to fetch certificates');
         return res.json();
       })

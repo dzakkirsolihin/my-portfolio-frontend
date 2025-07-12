@@ -234,54 +234,35 @@ const Projects: React.FC = () => {
         </div>
 
         {/* Projects Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
           {projects.map((project) => (
-            <Card
+            <div
               key={project.id}
-              image={project.previewImage}
-              title={project.title}
-              description={project.overview}
-              className="h-[520px] flex flex-col justify-between hover:scale-105 transition-all duration-300 group"
+              className="bg-[#181A20] rounded-xl shadow-lg flex flex-col h-full border border-[#23262F] transition hover:scale-105"
             >
-              <div className="flex flex-col flex-1">
-                <div className="flex items-center justify-between mb-3">
-                  <span className={`px-2 py-1 rounded-full text-xs font-medium whitespace-nowrap ${
-                    project.isDeployed
-                      ? 'bg-green-100 dark:bg-green-900/30 text-green-800 dark:text-green-300'
-                      : 'bg-yellow-100 dark:bg-yellow-900/30 text-yellow-800 dark:text-yellow-300'
-                  }`}>
-                    {project.isDeployed ? 'Live' : 'Development'}
-                  </span>
-                </div>
-                <div className="flex flex-wrap gap-1 mb-4 h-16 overflow-hidden">
-                  {project.technologies?.slice(0, 3).map((tech: string) => (
-                    <span
-                      key={tech}
-                      className="px-2 py-1 bg-blue-100 dark:bg-blue-900/30 text-blue-800 dark:text-blue-300 rounded text-xs"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies && project.technologies.length > 3 && (
-                    <span className="px-2 py-1 bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400 rounded text-xs">
-                      +{project.technologies.length - 3}
-                    </span>
-                  )}
-                </div>
-                <h2 className="text-lg font-bold text-gray-900 dark:text-white mb-2 line-clamp-2">{project.title}</h2>
-                <p className="text-gray-600 dark:text-gray-400 text-sm mb-4 line-clamp-3">
-                  {project.overview}
-                </p>
+              {/* Gambar */}
+              <div className="aspect-[16/9] w-full overflow-hidden rounded-t-xl bg-gray-800">
+                <img
+                  src={getImageUrl(project.previewImage)}
+                  alt={project.title}
+                  className="object-cover w-full h-full"
+                />
               </div>
-              <div className="mt-auto pt-4">
-                <button
-                  onClick={() => setSelectedProject(project)}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
-                >
-                  View Details
-                </button>
+              {/* Konten */}
+              <div className="flex flex-col flex-1 p-5">
+                <h2 className="text-lg font-bold text-white mb-1 line-clamp-2">{project.title}</h2>
+                <span className="text-xs text-gray-400 mb-2">{new Date(project.lastUpdated).toLocaleDateString()}</span>
+                <p className="text-gray-300 text-sm mb-4 line-clamp-2">{project.overview}</p>
+                <div className="mt-auto">
+                  <button
+                    onClick={() => setSelectedProject(project)}
+                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-2 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                  >
+                    View Project
+                  </button>
+                </div>
               </div>
-            </Card>
+            </div>
           ))}
         </div>
       </div>

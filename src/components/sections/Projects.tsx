@@ -238,7 +238,7 @@ const Projects: React.FC = () => {
           {projects.map((project) => (
             <div
               key={project.id}
-              className="bg-[#181A20] rounded-xl shadow-lg flex flex-col h-full border border-[#23262F] transition hover:scale-105"
+              className="bg-white/10 dark:bg-gray-900/10 backdrop-blur-md rounded-xl shadow-lg flex flex-col h-full border border-white/20 dark:border-gray-700/20 transition hover:scale-105"
             >
               {/* Gambar */}
               <div className="aspect-[16/9] w-full overflow-hidden rounded-t-xl bg-gray-800">

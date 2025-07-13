@@ -31,6 +31,7 @@ const Projects: React.FC = () => {
             technologies: proj.technologies,
             deploymentUrl: proj.deployment_url,
             galleryImages: proj.gallery_images,
+            githubRepoUrl: proj.github_repo_url,
           }))
         );
         setLoading(false);
@@ -139,11 +140,22 @@ const Projects: React.FC = () => {
                     href={selectedProject.deploymentUrl}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300"
+                    className="inline-flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 mb-4"
                   >
                     <ExternalLink size={20} />
                     <span>Visit Website</span>
                   </a>
+                  {selectedProject.githubRepoUrl && (
+                    <a
+                      href={selectedProject.githubRepoUrl}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center space-x-2 bg-gray-900/80 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all duration-300 ml-4"
+                    >
+                      <ExternalLink size={20} />
+                      <span>View GitHub Repo</span>
+                    </a>
+                  )}
                 </section>
               ) : (
                 selectedProject.galleryImages && (

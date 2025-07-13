@@ -541,6 +541,7 @@ const ProjectForm: React.FC<{
       isDeployed: false,
       deploymentUrl: '',
       galleryImages: [''],
+      githubRepoUrl: '',
     }
   );
   const [imageFile, setImageFile] = useState<File | null>(null);
@@ -598,6 +599,7 @@ const ProjectForm: React.FC<{
     } else if (formData.previewImage) {
       data.append('preview_image', formData.previewImage);
     }
+    if (formData.githubRepoUrl) data.append('github_repo_url', formData.githubRepoUrl);
     if (project && project.id) data.append('id', String(project.id));
     onSave(data);
   };
@@ -865,6 +867,19 @@ const ProjectForm: React.FC<{
               </div>
             </div>
           )}
+
+          <div>
+            <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
+              GitHub Repository URL (optional)
+            </label>
+            <input
+              type="url"
+              value={formData.githubRepoUrl || ''}
+              onChange={(e) => setFormData(prev => ({ ...prev, githubRepoUrl: e.target.value }))}
+              className="w-full px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-800 text-gray-900 dark:text-white"
+              placeholder="https://github.com/username/repo"
+            />
+          </div>
 
           <div className="flex space-x-4 pt-6">
             <button

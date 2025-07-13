@@ -12,6 +12,7 @@ export interface Project {
   isDeployed: boolean;
   deploymentUrl?: string;
   galleryImages?: string[];
+  githubRepoUrl?: string;
 }
 
 export interface Certificate {
